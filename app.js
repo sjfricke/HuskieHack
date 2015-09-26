@@ -1,42 +1,56 @@
-var cats = {};
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
-Leap.loop(function(frame) {
 
-  frame.hands.forEach(function(hand, index) {
-    
-    var cat = ( cats[index] || (cats[index] = new Cat()) );    
-    cat.setTransform(hand.screenPosition(), hand.roll());
-    
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
   });
-  
-}).use('screenPosition', {scale: .5});
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
 
 
-var Cat = function() {
-  var cat = this;
-  var img = document.createElement('img');
-  img.src = 'pointer.png';
-  img.style.position = 'absolute';
-  img.onload = function () {
-    cat.setTransform([window.innerWidth/2,window.innerHeight/2], 0);
-    document.body.appendChild(img);
-  }
-  
-  cat.setTransform = function(position, rotation) {
-
-    img.style.left = position[0] - img.width  / 2 + 'px';
-    img.style.top  = position[1] - img.height / 2 + 'px';
-
-    img.style.transform = 'rotate(' + -rotation + 'rad)';
-    
-    img.style.webkitTransform = img.style.MozTransform = img.style.msTransform =
-    img.style.OTransform = img.style.transform;
-
-  };
-
-};
-
-cats[0] = new Cat();
-
-// This allows us to move the cat even whilst in an iFrame.
-Leap.loopController.setBackground(true)
+module.exports = app;
