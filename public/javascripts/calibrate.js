@@ -15,6 +15,7 @@ $scope.$apply(function() {
     if(frame.pointables.length > 0){
         //grabs pointer finger tip
         var tipPosition = frame.pointables[1].tipPosition;
+        vm.leapCoordinates = vectorToString(tipPosition,1);
                 
         //Normalized coordinates
         var normalizedPosition = interactionBox.normalizePoint(tipPosition, true);
