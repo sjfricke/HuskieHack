@@ -20,18 +20,38 @@ body {
 }
 
 #note3{
+    position: absolute;
+    right: 0;
+    margin-right: 695px;
+    z-index: 1;
 }
 
 #note4{
+    position: absolute;
+    right: 0;
+    margin-right: 518px;
+    z-index: 1;
 }
 
 #note5{
+    position: absolute;
+    right: 0;
+    margin-right: 343px;
+    z-index: 1;
 }
 
 #note6{
+    position: absolute;
+    right: 0;
+    margin-right: 168px;
+    z-index: 1;
 }
 
 #note7{
+    position: absolute;
+    right: 0;
+    margin-right: 0px;
+    z-index: 1;
 }
 
 #note01{
