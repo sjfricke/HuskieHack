@@ -1,22 +1,30 @@
-(function() {
+
+      (function() {
   'use strict';
 
   angular.module('writeModule')
-  .controller('writeController', function(){
+  .controller('writeController', function($scope) {
+      var vm = this;
       
-      
+      var tipPosition;
+      var windowPosition;
       var vm = this;
       var leapCoordinates = document.getElementById('lmCoordinates');
       var normalizedCoordinates = document.getElementById('normalizedCoordinates');
       var windowCoordinates = document.getElementById('windowCoordinates');
       var fingers = {};
+vm.test = "test";
+      
+      
 
-    Leap.loop(function(frame){
+
+   
+    Leap.loop(function(frame){  
         var interactionBox = frame.interactionBox;
 
         if(frame.pointables.length > 0){
             //Leap coordinates
-            var tipPosition = frame.pointables[1].tipPosition;
+            tipPosition = frame.pointables[1].tipPosition;
             leapCoordinates.innerText = vectorToString(tipPosition,1);
 
             //Normalized coordinates
@@ -24,10 +32,26 @@
             normalizedCoordinates.innerText = vectorToString(normalizedPosition,4);
 
             //Pixel coordinates in current window
-            var windowPosition = [normalizedPosition[0] * window.innerWidth, 
+            windowPosition = [normalizedPosition[0] * window.innerWidth, 
                                   window.innerHeight - (normalizedPosition[1] * window.innerHeight), 
                                   0];
             windowCoordinates.innerText = vectorToString(windowPosition, 0);        
+            
+            if(frame.valid && frame.gestures.length > 0){
+                frame.gestures.forEach(function(gesture){
+                    switch (gesture.type){
+                        case "screenTap":
+                            console.log("Screen Tap Gesture");
+                           document.elementFromPoint(tipPosition[0], tipPosition[1]).trigger("click");
+                            break;
+                        case "swipe":
+                            console.log("Swipe Gesture");
+                            break;
+                    }
+                });
+            }
+            
+            
         }
 
         frame.hands.forEach(function(hand) {
@@ -37,23 +61,12 @@
 
         });
     }).use('screenPosition');
+    
 
-      
-    var controller = Leap.loop({enableGestures: true}, function(frame){
-        if(frame.valid && frame.gestures.length > 0){
-            frame.gestures.forEach(function(gesture){
-                switch (gesture.type){
-                    case "screenTap":
-                        console.log("Screen Tap Gesture");
-                        
-                        break;
-                    case "swipe":
-                        console.log("Swipe Gesture");
-                        break;
-                }
+      document.elementFromPoint(tipPosition[0], tipPosition[1]).on( "click", function() {
+              alert( 'fuck ya' );
             });
-        }
-    });
+    
 
     var Finger = function() {
       var finger = this;
@@ -90,8 +103,13 @@
       return "(" + vector[0].toFixed(digits) + ", "
                  + vector[1].toFixed(digits) + ", "
                  + vector[2].toFixed(digits) + ")";
-    }   
+    } 
 
-  });
+    });
+
+
 
 })();
+
+      
+
