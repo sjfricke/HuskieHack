@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module('writeModule')
-  .controller('calibrateController', function($scope) {
+  .controller('calibrateController', function($scope, $location) {
       var vm = this;
       
-vm.caliCounter = 1;
+vm.caliCounter = 0;
       
 Leap.loop(function(frame){
 $scope.$apply(function() {
@@ -51,8 +51,10 @@ window.addEventListener('keydown', function(event) {
 //runs if calibration is called
 function calibrationCounter() {
    
-    vm.caliCounter = vm.caliCounter + 1;
-    
+    //increments and sees if all has been calibrated
+    if (vm.caliCounter++ == 2){
+        $location.path('/write');
+    }
 };
 
   });
