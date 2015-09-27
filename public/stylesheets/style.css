@@ -11,15 +11,13 @@ body {
 }
 #cross1 {
     position: absolute;
+    margin-left: auto;
+    margin-right: auto;
     left: 0;
-    top: 0;
-}
-#cross2 {
-    position: absolute;
     right: 0;
     top: 0;
 }
-#cross3 {
+#cross2 {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -27,6 +25,7 @@ body {
     right: 0;
     bottom: 0;
 }
+
 
 #calInstructions {
     top: 3em;

@@ -5,8 +5,8 @@
   .controller('calibrateController', function($scope, $location) {
       var vm = this;
       
-vm.leapCoordinates = [0,0,0];
-vm.normalizedCoordinates = [0,0,0];
+vm.leapCoordinates = [0,0];
+vm.normalizedCoordinates = [0,0];
 vm.caliCounter = 0;
       
 Leap.loop(function(frame){
