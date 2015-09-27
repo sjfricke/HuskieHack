@@ -2,7 +2,7 @@ body {
   overflow: hidden; }
 
 .boxed{
-    margin-top: 400px;
+    margin-top: 40%;
     border: 1px solid black;
     height: 50px;
 }

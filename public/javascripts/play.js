@@ -177,7 +177,7 @@ function setTone(){
                     setTone();
                     break;
                 case 7:
-                    synth = new Tone.Sampler().toMaster();
+                    synth = new Tone.SimpleAM().toMaster();
                     setTone();
                     break;
                 case 8:
