@@ -51,37 +51,57 @@ $scope.$apply(function() {
                         
                        if (x <= .11){         
                            synth.triggerAttackRelease("C4", "8n"); 
+                           document.getElementById('note1').style.backgroundColor = "red";
+                           playNote('note1');
                        } else if ( x <= .16) {   
-                            synth.triggerAttackRelease("C#4", "8n");
+                           synth.triggerAttackRelease("C#4", "8n");
+                           document.getElementById('note01').style.backgroundColor = "red";
+                           playNote('note01');
                        } else if ( x <= .26) {
-                            synth.triggerAttackRelease("D4", "8n");
+                           synth.triggerAttackRelease("D4", "8n");
+                           document.getElementById('note2').style.backgroundColor = "red";
+                           playNote('note2');
                        } else if ( x <= .31) {
-                            synth.triggerAttackRelease("D#4", "8n");                            
+                           synth.triggerAttackRelease("D#4", "8n");
+                           document.getElementById('note02').style.backgroundColor = "red";
+                           playNote('note02');
                        } else if ( x <= .41) {
-                            synth.triggerAttackRelease("E4", "8n");                            
+                           synth.triggerAttackRelease("E4", "8n");
+                           document.getElementById('note3').style.backgroundColor = "red";
+                           playNote('note3');
                        } else if ( x <= .51) {
-                            synth.triggerAttackRelease("F4", "8n");                            
+                            synth.triggerAttackRelease("F4", "8n");
+                           document.getElementById('note4').style.backgroundColor = "red";
+                           playNote('note4');
                        } else if ( x <= .56) {
-                            synth.triggerAttackRelease("F#4", "8n");
+                           synth.triggerAttackRelease("F#4", "8n");
+                           document.getElementById('note03').style.backgroundColor = "red";
+                           playNote('note03');
                        } else if ( x <= .66) {
-                            synth.triggerAttackRelease("G4", "8n");
+                           synth.triggerAttackRelease("G4", "8n");
+                           document.getElementById('note5').style.backgroundColor = "red";
+                           playNote('note5');
                        } else if ( x <= .71) {
-                            synth.triggerAttackRelease("G#4", "8n");
+                           synth.triggerAttackRelease("G#4", "8n");
+                           document.getElementById('note04').style.backgroundColor = "red";
+                           playNote('note04');
                        } else if ( x <= .81) {
-                            synth.triggerAttackRelease("A4", "8n");
+                           synth.triggerAttackRelease("A4", "8n");
+                           document.getElementById('note6').style.backgroundColor = "red";
+                           playNote('note6');
 
                        } else if ( x <= .86) {
-                            synth.triggerAttackRelease("A#4", "8n");
+                           synth.triggerAttackRelease("A#4", "8n");
+                           document.getElementById('note05').style.backgroundColor = "red";
+                           playNote('note05');
 
                        } else {
-                            synth.triggerAttackRelease("B4", "8n");
+                           synth.triggerAttackRelease("B4", "8n");
+                           document.getElementById('note7').style.backgroundColor = "red";
+                           playNote('note7');
 
                        }
-                    wait = false;
-                    $timeout(function() {
-                        wait = true;
-
-                    }, 150);
+                    
                     
                        
                 }
@@ -141,6 +161,15 @@ function vectorToString(vector, digits) {
              + vector[2].toFixed(digits) + ")";
 };
       
+function playNote(note){
+    wait = false;
+    $timeout(function() {
+        wait = true;
+        document.getElementById(note).style.backgroundColor = "";
+
+    }, 150);
+}
+      
 function setTone(){
     wait = false;
     newTone = false;
@@ -165,7 +194,7 @@ function setTone(){
                     setTone();
                     break;
                 case 4:
-                    synth = new Tone.Monophonic().toMaster();
+                    synth = new Tone.FMSynth().toMaster();
                     setTone();
                     break;
                 case 5:
@@ -185,7 +214,7 @@ function setTone(){
                     setTone();
                     break;
                 case 9:
-                    synth = new Tone.FMSynth().toMaster();
+                    synth = new Tone.AMSynth().toMaster();
                     setTone();
                     break;
                 case 10:

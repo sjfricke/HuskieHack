@@ -21,87 +21,126 @@ body {
 .pianoDiv{
     height: 400px;
 }
+.notes{
+    width: 100%;
+}
 #note1{ 
-  position: absolute;
-    right: 0;
-    margin-right: 1045px;
-    z-index: 1;
+    position: absolute;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 4%;
+    top: 30%
 }
 #note2{
     position: absolute;
-    right: 0;
-    margin-right: 871px;
-    z-index: 1;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 20%;
+    top: 30%
 }
 
 #note3{
-    position: absolute;
-    right: 0;
-    margin-right: 695px;
-    z-index: 1;
+     position: absolute;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 36%;
+    top: 30%
 }
 
 #note4{
     position: absolute;
-    right: 0;
-    margin-right: 518px;
-    z-index: 1;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 48%;
+    top: 30%
 }
 
 #note5{
-    position: absolute;
-    right: 0;
-    margin-right: 343px;
-    z-index: 1;
+     position: absolute;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 63.5%;
+    top: 30%
 }
 
 #note6{
-    position: absolute;
-    right: 0;
-    margin-right: 168px;
-    z-index: 1;
+     position: absolute;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 78%;
+    top: 30%
 }
 
 #note7{
-    position: absolute;
-    right: 0;
-    margin-right: 0px;
-    z-index: 1;
+     position: absolute;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 93%;
+    top: 30%
 }
 
 #note01{
     position: absolute;
-    right: 0;
-    margin-right: 1000px;
-    z-index: 1;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 13%;
+    top: 30%
 }
 
 #note02{
-    position: absolute;
-    right: 0;
-    margin-right: 826px;
-    z-index: 1;
+     position: absolute;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 27.5%;
+    top: 30%
 }
 
 #note03{
-    position: absolute;
-    right: 0;
-    margin-right: 473px;
-    z-index: 1;
+     position: absolute;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 56.5%;
+    top: 30%
 }
 
 #note04{
-    position: absolute;
-    right: 0;
-    margin-right: 297px;
-    z-index: 1;
+     position: absolute;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 71%;
+    top: 30%
 }
 
 #note05{
-     position: absolute;
-    right: 0;
-    margin-right: 123px;
-    z-index: 1;
+      position: absolute;
+    background-color: none;
+    border-radius: .5em;
+    width: 2.5em;
+    height: 2.5em;
+    left: 85.5%;
+    top: 30%
 }
 
 

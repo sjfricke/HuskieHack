@@ -2,18 +2,32 @@
 <div class="pianoDiv">
     <img class="piano" src="images/state0.png">
 <div>
+<div class="notes">    
+    <div id="note1"></div>
+    <div id="note2"></div>
+    <div id="note3"></div>
+    <div id="note4"></div>
+    <div id="note5"></div>
+    <div id="note6"></div>
+    <div id="note7"></div>
+    <div id="note01"></div>
+    <div id="note02"></div>
+    <div id="note03"></div>
+    <div id="note04"></div>
+    <div id="note05"></div>
+</div>
 <br>
 <div style="z-index: 4; position: absolute; margin-left: 20px;">VOLUME: {{play.volume}}</div>
 <div class="row">
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone1}">AM Synth</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone2}">Drum Synth</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone3}">Duo Synth</div>
-    <div class="col-xs-1 boxed" ng-class="{filled: play.tone4}">Monophonic</div>
+    <div class="col-xs-1 boxed" ng-class="{filled: play.tone4}">FM Synth</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone5}">Mono Synth</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone6}">Poly Synth</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone7}">Simple AM</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone8}">Simple Synth</div>
-    <div class="col-xs-1 boxed" ng-class="{filled: play.tone9}">FM Synth</div>
+    <div class="col-xs-1 boxed" ng-class="{filled: play.tone9}">Monophonic</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone10}">Pluck Synth</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone11}">Simpe FM</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone12}">Noice Synth</div>
