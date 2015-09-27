@@ -185,13 +185,14 @@ h2.no-span {
     top: 0em;
 }
 #cross2 {
-    left: 0em;
-    top: 13em;
+    left: 74.5em;
+    top: 0em;
 }
 #cross3 {
-    left: 0em;
+    left: 38em;
     top: 30em;
 }
+/*
 #cross4 {
     left: 38em;
     top: 0em;
@@ -216,6 +217,7 @@ h2.no-span {
     left: 74.5em;
     top: 30em;
 }
+*/
 #lmCoordinates {
     position: absolute;
     left: 20em;
@@ -234,6 +236,14 @@ h2.no-span {
 #calInstructions {
     top: 3em;
     left: 10em;
+}
+
+#one {
+    top: 3em;
+}
+#two {
+    top: 3em;
+    left: 70em;
 }
 
 /*# sourceMappingURL=style.css.map */
