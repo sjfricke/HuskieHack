@@ -2,10 +2,9 @@
   'use strict';
 
   angular.module('writeModule')
-  .controller('writeController', function($scope) {
+  .controller('playController', function($scope) {
       var vm = this;
-      
-vm.test = "test";
+
       
       vm.test=test;
       function test(){alert('TEST');}
