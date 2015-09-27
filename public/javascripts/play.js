@@ -16,7 +16,7 @@ $scope.$apply(function() {
     controller.on('frame', function(frame){
         if(frame.pointables.length > 0){
             for(var i = 0; i < 5; i++){
-                if (frame.pointables[i].tipVelocity[1] < -300){
+                if (frame.pointables[i].tipVelocity[1] < -200){
                 console.log(i);
                 }
             }

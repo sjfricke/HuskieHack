@@ -2,8 +2,52 @@ body {
   overflow: hidden; }
 
 .piano {
-  width: 70%;
-  float: right;
-  text-align: right; }
+  position: absolute; 
+    right: 0;
+    z-index: 0;
+}
+#note1{ 
+  position: absolute;
+    right: 0;
+    margin-right: 1045px;
+    z-index: 1;
+}
+#note2{
+    position: absolute;
+    right: 0;
+    margin-right: 871px;
+    z-index: 1;
+}
+
+#note3{
+}
+
+#note4{
+}
+
+#note5{
+}
+
+#note6{
+}
+
+#note7{
+}
+
+#note01{
+}
+
+#note02{
+}
+
+#note03{
+}
+
+#note04{
+}
+
+#note05{
+}
+
 
 /*# sourceMappingURL=style.css.map */
