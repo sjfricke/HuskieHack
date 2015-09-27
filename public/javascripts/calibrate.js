@@ -5,6 +5,8 @@
   .controller('calibrateController', function($scope, $location) {
       var vm = this;
       
+vm.leapCoordinates = [0,0,0];
+vm.normalizedCoordinates = [0,0,0];
 vm.caliCounter = 0;
       
 Leap.loop(function(frame){
@@ -15,17 +17,13 @@ $scope.$apply(function() {
     if(frame.pointables.length > 0){
         //grabs pointer finger tip
         var tipPosition = frame.pointables[1].tipPosition;
-        vm.leapCoordinates = vectorToString(tipPosition,1);
+        vm.leapCoordinates[vm.caliCounter] = vectorToString(tipPosition,1);
                 
         //Normalized coordinates
         var normalizedPosition = interactionBox.normalizePoint(tipPosition, true);
-        vm.normalizedCoordinates = vectorToString(normalizedPosition,4);
+        vm.normalizedCoordinates[vm.caliCounter] = vectorToString(normalizedPosition,4);
 
-        //Pixel coordinates in current window
-        var windowPosition = [normalizedPosition[0] * window.innerWidth, 
-                              window.innerHeight - (normalizedPosition[1] * window.innerHeight), 
-                              0];
-        vm.windowCoordinates = vectorToString(windowPosition, 0);    
+     
     }
     
 
