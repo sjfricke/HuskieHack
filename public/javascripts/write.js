@@ -2,30 +2,17 @@
   'use strict';
 
   angular.module('writeModule')
-  .controller('writeController', function() {
+  .controller('writeController', function($scope) {
       var vm = this;
-    var leapCoordinates = document.getElementById('lmCoordinates');
-var normalizedCoordinates = document.getElementById('normalizedCoordinates');
-var windowCoordinates = document.getElementById('windowCoordinates');
-
+      
+vm.caliCounter = 1;
+      
 Leap.loop(function(frame){
+$scope.$apply(function() {
     var interactionBox = frame.interactionBox;
     
-    if(frame.pointables.length > 0){
-        //Leap coordinates
-        var tipPosition = frame.pointables[0].tipPosition;
-        leapCoordinates.innerText = vectorToString(tipPosition,1);
-        
-        //Normalized coordinates
-        var normalizedPosition = interactionBox.normalizePoint(tipPosition, true);
-        normalizedCoordinates.innerText = vectorToString(normalizedPosition,4);
 
-        //Pixel coordinates in current window
-        var windowPosition = [normalizedPosition[0] * window.innerWidth, 
-                              window.innerHeight - (normalizedPosition[1] * window.innerHeight), 
-                              0];
-        windowCoordinates.innerText = vectorToString(windowPosition, 0);        
-    }
+});
 });
 
 function vectorToString(vector, digits) {
@@ -35,7 +22,18 @@ function vectorToString(vector, digits) {
   return "(" + vector[0].toFixed(digits) + ", "
              + vector[1].toFixed(digits) + ", "
              + vector[2].toFixed(digits) + ")";
-}   
+};
+
+window.addEventListener('keydown', function(event) {
+    if(event.keyCode === 32) {
+        calibrationCounter();
+    }
+});
+function calibrationCounter() {
+   
+    vm.caliCounter = vm.caliCounter + 1;
+    
+};
 
   });
 

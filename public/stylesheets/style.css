@@ -174,5 +174,66 @@ h2.no-span {
     right: 1.5%; }
   h2.no-span:after {
     left: 1.5%; }
+.crosshairs {
+    position: absolute;
+    alt: crosshairs;
+    width: 5em;
+    
+}
+#cross1 {
+    left: 0em;
+    top: 0em;
+}
+#cross2 {
+    left: 0em;
+    top: 13em;
+}
+#cross3 {
+    left: 0em;
+    top: 30em;
+}
+#cross4 {
+    left: 38em;
+    top: 0em;
+}
+#cross5 {
+    left: 38em;
+    top: 13em;
+}
+#cross6 {
+    left: 38em;
+    top: 30em;
+}
+#cross7 {
+    left: 74.5em;
+    top: 0em;
+}
+#cross8 {
+    left: 74.5em;
+    top: 13em;
+}
+#cross9 {
+    left: 74.5em;
+    top: 30em;
+}
+#lmCoordinates {
+    position: absolute;
+    left: 20em;
+    top: 10em;
+}
+#normalizedCoordinates {
+    position: absolute;
+    left: 20em;
+    top: 12em;
+}
+#windowCoordinates {
+    position: absolute;
+    left: 20em;
+    top: 14em;
+}
+#calInstructions {
+    top: 3em;
+    left: 10em;
+}
 
 /*# sourceMappingURL=style.css.map */
