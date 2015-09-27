@@ -10,14 +10,14 @@
 Leap.loop(function(frame){
 $scope.$apply(function() {
    
-  
+    var interactionBox = frame.interactionBox;
    
     var controller = new Leap.Controller();
     controller.on('frame', function(frame){
         if(frame.pointables.length > 0){
             for(var i = 0; i < 5; i++){
                 if (frame.pointables[i].tipVelocity[1] < -200){
-                console.log(i);
+                 console.log(interactionBox.normalizePoint(frame.pointables[i].tipPosition, true));             
                 }
             }
         }
