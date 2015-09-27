@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('writeModule')
-  .controller('playController', function($scope) {
+  .controller('playController', function($scope, $timeout) {
       var vm = this;
 
      var tipPosition;
@@ -17,7 +17,57 @@ $scope.$apply(function() {
         if(frame.pointables.length > 0){
             for(var i = 0; i < 5; i++){
                 if (frame.pointables[i].tipVelocity[1] < -200){
-                 console.log(interactionBox.normalizePoint(frame.pointables[i].tipPosition, true));             
+                    var synth = new Tone.SimpleSynth().toMaster();
+                    var x = interactionBox.normalizePoint(frame.pointables[i].tipPosition, true)[0]
+                       if (x <= .10){
+                           $timeout(function() {
+                            synth.triggerAttackRelease("C4", "8n");
+                            }, 1000);
+                       } else if ( x <= .16) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("B4", "8n");
+                            }, 1000);
+                       } else if ( x <= .26) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("D4", "8n");
+                            }, 1000);
+                       } else if ( x <= .32) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("E4", "8n");
+                            }, 1000);
+                       } else if ( x <= .42) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("F4", "8n");
+                            }, 1000);
+                       } else if ( x <= .52) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("C4", "8n");
+                            }, 1000);
+                       } else if ( x <= .58) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("C4", "8n");
+                            }, 1000);
+                       } else if ( x <= .68) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("C4", "8n");
+                            }, 1000);
+                       } else if ( x <= .74) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("C4", "8n");
+                            }, 1000);
+                       } else if ( x <= .84) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("C4", "8n");
+                            }, 1000);
+                       } else if ( x <= .90) {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("C4", "8n");
+                            }, 1000);
+                       } else {
+                            $timeout(function() {
+                                synth.triggerAttackRelease("C4", "8n");
+                            }, 1000);
+                       }
                 }
             }
         }
