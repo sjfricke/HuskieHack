@@ -1,43 +1,108 @@
 body {
- overflow: hidden;
+  overflow: hidden; }
+
+.boxed{
+    margin-top: 400px;
+    border: 1px solid black;
+    height: 50px;
 }
 
+.filled{
+    background: red;
+}
 
-.crosshairs {
-    position: absolute;
-    alt: crosshairs;
+.piano {
     width: 100%;
-    height: 100%;
-}
-#cross1 {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
+    max-height: 400px;
+  position: absolute; 
     right: 0;
-    top: 0;
+    z-index: 0;
 }
-#cross2 {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
+.pianoDiv{
+    height: 400px;
+}
+#note1{ 
+  position: absolute;
     right: 0;
-    bottom: 0;
+    margin-right: 1045px;
+    z-index: 1;
+}
+#note2{
+    position: absolute;
+    right: 0;
+    margin-right: 871px;
+    z-index: 1;
 }
 
-
-#calInstructions {
-    top: 3em;
-    left: 10em;
+#note3{
+    position: absolute;
+    right: 0;
+    margin-right: 695px;
+    z-index: 1;
 }
 
-#one {
-    top: 3em;
+#note4{
+    position: absolute;
+    right: 0;
+    margin-right: 518px;
+    z-index: 1;
 }
-#two {
-    top: 3em;
-    left: 70em;
+
+#note5{
+    position: absolute;
+    right: 0;
+    margin-right: 343px;
+    z-index: 1;
 }
+
+#note6{
+    position: absolute;
+    right: 0;
+    margin-right: 168px;
+    z-index: 1;
+}
+
+#note7{
+    position: absolute;
+    right: 0;
+    margin-right: 0px;
+    z-index: 1;
+}
+
+#note01{
+    position: absolute;
+    right: 0;
+    margin-right: 1000px;
+    z-index: 1;
+}
+
+#note02{
+    position: absolute;
+    right: 0;
+    margin-right: 826px;
+    z-index: 1;
+}
+
+#note03{
+    position: absolute;
+    right: 0;
+    margin-right: 473px;
+    z-index: 1;
+}
+
+#note04{
+    position: absolute;
+    right: 0;
+    margin-right: 297px;
+    z-index: 1;
+}
+
+#note05{
+     position: absolute;
+    right: 0;
+    margin-right: 123px;
+    z-index: 1;
+}
+
 
 /*# sourceMappingURL=style.css.map */

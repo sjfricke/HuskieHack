@@ -21,12 +21,12 @@ function config($routeProvider) {
       controller:  'calibrateController',
       controllerAs: 'calibrate'
     })
-    .when('/write', {
-      templateUrl: 'views/write.html',
-      controller:  'writeController',
-      controllerAs: 'write'
+    .when('/play', {
+      templateUrl: 'views/play.html',
+      controller:  'playController',
+      controllerAs: 'play'
     })
     .otherwise({
-      redirectTo: '/calibrate'
+      redirectTo: '/play'
     });
 }
