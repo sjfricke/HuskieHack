@@ -16,30 +16,31 @@
       
 Leap.loop({enableGestures: true},function(frame){
 $scope.$apply(function() {
+    
    
     var interactionBox = frame.interactionBox;
    
-    var controller = new Leap.Controller();    
-    controller.on('gesture', function(gesture){
-        console.log("gesture");
-        if (gesture.type == 'circle' && gestureWait){
-                var toneString = 'tone'+tone;
-                vm[toneString] = false;                        
-                tone++;     
-                if (tone === 13){tone = 1;}
-                toneString = 'tone'+tone;
-                vm[toneString] = true;
-                gestureWait = false;
-                newTone = true;
-                $timeout(function() {
-                    gestureWait = true;
-                }, 500);
+      
+    if(frame.valid && frame.gestures.length > 0  && gestureWait){
+                console.log(frame.gestures[0]);
+                 if (frame.gestures[0].type == 'swipe'){
+                        var toneString = 'tone'+tone;
+                        vm[toneString] = false;                        
+                        tone++;     
+                        if (tone === 13){tone = 1;}
+                        toneString = 'tone'+tone;
+                        vm[toneString] = true;
+                        gestureWait = false;
+                        newTone = true;
+                        $timeout(function() {
+                            gestureWait = true;
+                        }, 500);
+                    }
             }
-    });
-    
-//    var controller = new Leap.Controller();
-    controller.on('frame', function(frame){
         
+       
+   
+
         if(frame.pointables.length > 0){
             for(var i = 0; i < 5; i++){
                 
@@ -84,6 +85,7 @@ $scope.$apply(function() {
                 }
             }
             
+            
          if (newTone){
             switch(tone){
                 case 1:
@@ -99,7 +101,7 @@ $scope.$apply(function() {
                     setTone();
                     break;
                 case 4:
-                    synth = new Tone.Instrument().toMaster();
+                    synth = new Tone.Monophonic().toMaster();
                     setTone();
                     break;
                 case 5:
@@ -148,8 +150,7 @@ $scope.$apply(function() {
             
             
         }
-    });
-    controller.connect();
+   
 
 
 });
