@@ -1,7 +1,9 @@
-
+<!--Piano keys image-->
 <div class="pianoDiv">
     <img class="piano" src="images/state0.png">
 <div>
+    
+<!--Red dots to be placed when notes clicked-->
 <div class="notes">    
     <div id="note1"></div>
     <div id="note2"></div>
@@ -17,7 +19,11 @@
     <div id="note05"></div>
 </div>
 <br>
+
+<!--Volume Level indicator-->
 <div style="z-index: 4; position: absolute; margin-left: 20px;">VOLUME: {{play.volume}}</div>
+    
+<!--Synth Selection Row-->
 <div class="row">
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone1}">AM Synth</div>
     <div class="col-xs-1 boxed" ng-class="{filled: play.tone2}">Drum Synth</div>
