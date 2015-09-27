@@ -18,3 +18,6 @@
 * with the second hand you can swipe to change synth selection
 * the second hand pinching of index and thumb increases volume
 * the first hand pinching resets volume to zero
+
+## Video Demo
+https://www.youtube.com/watch?v=UKMxQ4OY6Uo&feature=youtu.be
