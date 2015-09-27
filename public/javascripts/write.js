@@ -71,7 +71,7 @@ vm.test = "test";
     var Finger = function() {
       var finger = this;
       var img = document.createElement('img');
-      img.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/109794/cat_2.png';
+      img.src = 'cursor.png';
       img.style.position = 'absolute';
       img.onload = function () {
         finger.setTransform([window.innerWidth/2,window.innerHeight/2], 0);
