@@ -13,6 +13,8 @@
      var wait = true;
      var gestureWait = true;
      var newTone = false;
+     vm.volume = 0;
+     var volumeWait = true;
       
 Leap.loop({enableGestures: true},function(frame){
 $scope.$apply(function() {
@@ -22,7 +24,7 @@ $scope.$apply(function() {
    
       
     if(frame.valid && frame.gestures.length > 0  && gestureWait){
-                console.log(frame.gestures[0]);
+//                console.log(frame.gestures[0]);
                  if (frame.gestures[0].type == 'swipe'){
                         var toneString = 'tone'+tone;
                         vm[toneString] = false;                        
@@ -86,8 +88,70 @@ $scope.$apply(function() {
             }
             
             
-         if (newTone){
-            switch(tone){
+         if (newTone){            
+            
+             setTone2();
+         }
+        
+            if(frame.hands.length > 1 && volumeWait){
+                if(frame.hands[1].pinchStrength > .95){
+                    vm.volume += 5;
+                    if (vm.volume === 25) { vm.volume = 20; }
+                    synth.chain(new Tone.Volume(vm.volume), Tone.Master);
+                    console.log("upp!");
+                    volumeWait = false;
+                    $timeout(function() {
+                            volumeWait = true;
+                        }, 1000);
+                    
+                }
+                if(frame.hands[0].pinchStrength > .95){
+                    vm.volume = 0;
+                    setTone2();
+                    console.log("DOWN!");
+                    volumeWait = false;
+                    $timeout(function() {
+                            volumeWait = true;
+                        }, 1000);
+                }
+                
+            }   
+            
+
+
+                       
+            
+            
+        }
+   
+
+
+});
+});
+      
+   
+      
+//turns vector into string 
+function vectorToString(vector, digits) {
+  if (typeof digits === "undefined") {
+    digits = 1;
+  }
+  return "(" + vector[0].toFixed(digits) + ", "
+             + vector[1].toFixed(digits) + ", "
+             + vector[2].toFixed(digits) + ")";
+};
+      
+function setTone(){
+    wait = false;
+    newTone = false;
+    $timeout(function() {
+        wait = true;
+    }, 500);
+}
+
+      function setTone2(){
+             
+             switch(tone){
                 case 1:
                     synth = new Tone.AMSynth().toMaster();
                     setTone();
@@ -138,44 +202,6 @@ $scope.$apply(function() {
                     break;                             
             }
          }
-            
-//          if(frame.pointables.length > 5){  
-//            if (frame.pointables[5].tipVelocity[1] < -400){setTone1();}
-//            if (frame.pointables[6].tipVelocity[1] < -400){setTone2();}
-//            if (frame.pointables[7].tipVelocity[1] < -400){setTone3();}
-//            if (frame.pointables[8].tipVelocity[1] < -400){setTone4();}
-//          }
-                    
-               
-            
-            
-        }
-   
-
-
-});
-});
-      
-   
-      
-//turns vector into string 
-function vectorToString(vector, digits) {
-  if (typeof digits === "undefined") {
-    digits = 1;
-  }
-  return "(" + vector[0].toFixed(digits) + ", "
-             + vector[1].toFixed(digits) + ", "
-             + vector[2].toFixed(digits) + ")";
-};
-      
-function setTone(){
-    wait = false;
-    newTone = false;
-    $timeout(function() {
-        wait = true;
-    }, 500);
-}
-
 
 
 
