@@ -51,7 +51,7 @@ window.addEventListener('keydown', function(event) {
 function calibrationCounter() {
    
     //increments and sees if all has been calibrated
-    if (vm.caliCounter++ == 2){
+    if (vm.caliCounter++ == 3){
         $location.path('/write');
     }
 };
